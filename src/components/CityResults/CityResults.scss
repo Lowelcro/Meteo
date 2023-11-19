@@ -1,0 +1,17 @@
+.Results {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &__details {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  &__last-up {
+    color: gray;
+    margin-block-start: 1rem;
+  }
+}

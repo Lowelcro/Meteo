@@ -1,26 +1,44 @@
-import logo from '../../assets/logo.svg';
-
+import { useState } from 'react';
+import axios from 'axios';
+import CitySearch from '../CitySearch/CitySearch';
 import './App.scss';
+import CityResults from '../CityResults/CityResults';
 
 function App() {
+  const [inputSeachCity, setInputSearchCity] = useState('');
+  const [cityResultsLocation, setCityResultsLocation] = useState({});
+  const [cityResultsCondition, setCityResultsCondition] = useState({});
+
+  const cityRequest = () => {
+    axios
+      .get(
+        `http://api.weatherapi.com/v1/current.json?key=<YOUR API KEY>&q=${inputSeachCity}`
+      )
+      .then((response) => {
+        // console.log(response.data);
+        setCityResultsLocation(response.data.location);
+        setCityResultsCondition(response.data.current);
+        setInputSearchCity('');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p>
-          Edit <code>src/components/App/App.jsx</code> and save to reload.
-        </p>
-
-        <a
-          className="App-link"
-          href="https://react.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Météo</h1>
+      <CitySearch
+        value={inputSeachCity}
+        handleChange={setInputSearchCity}
+        handleSubmit={cityRequest}
+      />
+      {Object.keys(cityResultsLocation).length > 0 &&
+        Object.keys(cityResultsCondition).length > 0 && (
+          <CityResults
+            locationData={cityResultsLocation}
+            conditionData={cityResultsCondition}
+          />
+        )}
     </div>
   );
 }
