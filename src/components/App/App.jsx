@@ -21,7 +21,7 @@ function App() {
         setInputSearchCity('');
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
   return (
