@@ -15,4 +15,9 @@ TODOS :
 - French / Engish versions
 - KPH / MPH and °C / °F options
 - Finer search
-- 
+- Local favorite places
+
+*Later*
+
+- *An interactive map*
+- *Alerts for unusual meteorological events*
