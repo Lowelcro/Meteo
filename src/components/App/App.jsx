@@ -12,7 +12,7 @@ function App() {
   const cityRequest = () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=<YOUR API KEY>&q=${inputSeachCity}`
+        `http://api.weatherapi.com/v1/current.json?key=a619da922ecc4a6c9fe140258231811&q=${inputSeachCity}`
       )
       .then((response) => {
         // console.log(response.data);

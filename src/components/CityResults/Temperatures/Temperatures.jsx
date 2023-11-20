@@ -29,10 +29,12 @@ const Temperatures = ({ conditionData }) => {
         <FontAwesomeIcon icon={faTemperatureHalf} />
       </div>
       <div className="Results__temp__details">
-        <h3 className="Results__temp__real">{conditionData.temp_c}°C</h3>
+        <h3 className="Results__temp__real">
+          {Math.round(conditionData.temp_c)}°C
+        </h3>
         Feelslike :{' '}
         <span className="Results__temp__feelslike">
-          {conditionData.feelslike_c}°C
+          {Math.round(conditionData.feelslike_c * 2) / 2}°C
         </span>
       </div>
     </div>
