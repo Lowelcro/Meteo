@@ -13,9 +13,11 @@ const Wind = ({ conditionData }) => {
         <h3 className="Results__wind__speed">
           {Math.round(conditionData.wind_kph)} km/h
         </h3>
-        <span className="Results__wind__gust">
-          {Math.round(conditionData.gust_kph)} km/h
-        </span>
+        {conditionData.gust_kph >= 30 && (
+          <span className="Results__wind__gust">
+            {Math.round(conditionData.gust_kph)} km/h
+          </span>
+        )}
       </div>
 
       <div className="Results__wind__dir">

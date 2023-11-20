@@ -30,7 +30,7 @@ const Temperatures = ({ conditionData }) => {
       </div>
       <div className="Results__temp__details">
         <h3 className="Results__temp__real">
-          {Math.round(conditionData.temp_c)}°C
+          {Math.round(conditionData.temp_c * 2) / 2}°C
         </h3>
         Feelslike :{' '}
         <span className="Results__temp__feelslike">
