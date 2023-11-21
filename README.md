@@ -11,7 +11,7 @@ TODOS :
 
 - Better CSS
 - Responsive
-- Add an advanced view option with more informations
+- ~~Add an advanced view option with more informations~~
 - French / Engish versions
 - KPH / MPH and °C / °F options
 - Finer search
