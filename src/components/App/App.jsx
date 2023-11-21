@@ -1,18 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CitySearch from '../CitySearch/CitySearch';
 import './App.scss';
 import CityResults from '../CityResults/CityResults';
 
+import config from '../../utils/config';
+
 function App() {
   const [inputSeachCity, setInputSearchCity] = useState('');
   const [cityResultsLocation, setCityResultsLocation] = useState({});
   const [cityResultsCondition, setCityResultsCondition] = useState({});
+  const [apiKey, setApiKey] = useState('');
+
+  useEffect(() => {
+    setApiKey(config.apiKey);
+  }, []);
 
   const cityRequest = () => {
     axios
       .get(
-        `http://api.weatherapi.com/v1/current.json?key=<API KEY>&q=${inputSeachCity}`
+        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputSeachCity}`
       )
       .then((response) => {
         // console.log(response.data);
@@ -32,13 +39,12 @@ function App() {
         handleChange={setInputSearchCity}
         handleSubmit={cityRequest}
       />
-      {Object.keys(cityResultsLocation).length > 0 &&
-        Object.keys(cityResultsCondition).length > 0 && (
-          <CityResults
-            locationData={cityResultsLocation}
-            conditionData={cityResultsCondition}
-          />
-        )}
+      {Object.keys(cityResultsCondition).length > 0 && (
+        <CityResults
+          locationData={cityResultsLocation}
+          conditionData={cityResultsCondition}
+        />
+      )}
     </div>
   );
 }

@@ -25,3 +25,7 @@ dist-ssr
 *.sln
 *.sw?
 
+# config
+src/utils/config.js
+
+
