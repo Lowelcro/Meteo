@@ -10,8 +10,23 @@
     gap: 1rem;
   }
 
-  &__last-up {
-    color: gray;
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-block-start: 1rem;
+
+    &__last-up {
+      color: gray;
+      width: 50%;
+    }
+    button {
+      width: fit-content;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      color: blue;
+    }
   }
 }

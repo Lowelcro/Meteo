@@ -9,13 +9,14 @@ const CitySearch = ({ value, handleChange, handleSubmit }) => {
         event.preventDefault();
         if (value) {
           handleSubmit(value);
+          document.activeElement.blur();
         }
       }}
     >
       <input
         type="text"
         className="form__input"
-        placeholder="Recherchez une ville (en précisant son pays si besoin)"
+        placeholder="Search for a city (specifying its country if necessary)"
         value={value}
         onChange={(event) => {
           handleChange(event.target.value);

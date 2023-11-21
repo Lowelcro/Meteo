@@ -5,6 +5,8 @@ import './App.scss';
 import CityResults from '../CityResults/CityResults';
 
 import config from '../../utils/config';
+import AppFooter from '../AppFooter/AppFooter';
+import AppHeader from '../AppHeader/AppHeader';
 
 function App() {
   const [inputSeachCity, setInputSearchCity] = useState('');
@@ -22,7 +24,7 @@ function App() {
         `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputSeachCity}`
       )
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         setCityResultsLocation(response.data.location);
         setCityResultsCondition(response.data.current);
         setInputSearchCity('');
@@ -33,7 +35,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Météo</h1>
+      <AppHeader />
       <CitySearch
         value={inputSeachCity}
         handleChange={setInputSearchCity}
@@ -45,6 +47,7 @@ function App() {
           conditionData={cityResultsCondition}
         />
       )}
+      <AppFooter />
     </div>
   );
 }
