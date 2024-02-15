@@ -20,6 +20,7 @@
       color: gray;
       width: 50%;
     }
+
     button {
       width: fit-content;
       padding: 0.5rem;
@@ -28,5 +29,21 @@
       font-size: 1rem;
       color: blue;
     }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Results {
+    width: 80%;
+
+    &__footer {
+      font-size: .8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 496px) {
+  .Results {
+    width: 90%;
   }
 }

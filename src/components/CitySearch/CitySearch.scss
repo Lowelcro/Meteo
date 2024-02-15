@@ -1,11 +1,9 @@
 .form {
   width: 50%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(222, 235, 250, 1) 59%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(222, 235, 250, 1) 59%);
   border-radius: 8px;
 
   margin-block-end: 1rem;
@@ -20,6 +18,26 @@
 
     &:focus {
       transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .form {
+    width: 80%;
+
+    &__input {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 496px) {
+  .form {
+    width: 90%;
+
+    &__input {
+      font-size: .8rem;
     }
   }
 }

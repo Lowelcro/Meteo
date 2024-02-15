@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin-block-start: 1rem;
+
   /**/
   &__item {
     width: 30%;
@@ -12,21 +13,36 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(222, 235, 250, 1) 59%
-    );
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(222, 235, 250, 1) 59%);
     border-radius: 8px;
+
     /**/
     .item__head {
       font-size: 0.8rem;
     }
+
     .item__value {
       font-size: 1.2rem;
       font-weight: 700;
     }
+
     /**/
   }
+
   /**/
 }
+
+@media screen and (max-width: 992px) {
+  .Other__details {
+    &__item {
+      .item__value {
+        font-size: .9rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 496px) {}

@@ -13,26 +13,28 @@ function App() {
   const [cityResultsLocation, setCityResultsLocation] = useState({});
   const [cityResultsCondition, setCityResultsCondition] = useState({});
   const [apiKey, setApiKey] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     setApiKey(config.apiKey);
   }, []);
 
-  const cityRequest = () => {
-    axios
-      .get(
+  const cityRequest = async () => {
+    setErrorMessage('');
+    try {
+      const response = await axios.get(
         `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputSeachCity}`
-      )
-      .then((response) => {
-        console.log(response.data);
-        setCityResultsLocation(response.data.location);
-        setCityResultsCondition(response.data.current);
-        setInputSearchCity('');
-      })
-      .catch((error) => {
-        // console.log(error);
-      });
+      );
+      setCityResultsLocation(response.data.location);
+      setCityResultsCondition(response.data.current);
+      setInputSearchCity('');
+    } catch (error) {
+      if (error.code === 'ERR_BAD_REQUEST') {
+        setErrorMessage('No result found');
+      }
+    }
   };
+
   return (
     <div className="App">
       <AppHeader />
@@ -41,11 +43,13 @@ function App() {
         handleChange={setInputSearchCity}
         handleSubmit={cityRequest}
       />
-      {Object.keys(cityResultsCondition).length > 0 && (
+      {Object.keys(cityResultsCondition).length > 0 && errorMessage === '' ? (
         <CityResults
           locationData={cityResultsLocation}
           conditionData={cityResultsCondition}
         />
+      ) : (
+        <p>{errorMessage}</p>
       )}
       <AppFooter />
     </div>

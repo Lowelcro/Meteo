@@ -6,59 +6,69 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(222, 235, 250, 1) 59%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(222, 235, 250, 1) 59%);
   border-radius: 8px;
 
   .thermometer {
     font-size: 3rem;
 
     &--very-hot {
-      background: radial-gradient(
-        circle,
-        rgba(255, 68, 0, 1) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
+      background: radial-gradient(circle,
+          rgba(255, 68, 0, 1) 0%,
+          rgba(255, 255, 255, 0) 50%);
     }
+
     &--hot {
-      background: radial-gradient(
-        circle,
-        rgb(255, 174, 0) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
+      background: radial-gradient(circle,
+          rgb(255, 174, 0) 0%,
+          rgba(255, 255, 255, 0) 50%);
     }
+
     &--moderate {
-      background: radial-gradient(
-        circle,
-        rgb(187, 255, 0) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
+      background: radial-gradient(circle,
+          rgb(187, 255, 0) 0%,
+          rgba(255, 255, 255, 0) 50%);
     }
+
     &--quite-cold {
-      background: radial-gradient(
-        circle,
-        rgb(0, 217, 255) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
+      background: radial-gradient(circle,
+          rgb(0, 217, 255) 0%,
+          rgba(255, 255, 255, 0) 50%);
     }
+
     &--cold {
-      background: radial-gradient(
-        circle,
-        rgb(0, 128, 255) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
+      background: radial-gradient(circle,
+          rgb(0, 128, 255) 0%,
+          rgba(255, 255, 255, 0) 50%);
     }
   }
+
   &__real {
     font-size: 2rem;
     font-weight: 700;
     margin-block-end: 1rem;
     text-align: center;
   }
+
   &__feelslike {
     font-weight: 700;
   }
 }
+
+@media screen and (max-width: 992px) {
+  .Results__temp {
+    width: 100%;
+  }
+
+  .thermometer {
+    font-size: 1rem;
+
+    &__real {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 496px) {}
