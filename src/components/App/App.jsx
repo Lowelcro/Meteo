@@ -23,7 +23,7 @@ function App() {
     setErrorMessage('');
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputSeachCity}`
+        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${inputSeachCity}`
       );
       setCityResultsLocation(response.data.location);
       setCityResultsCondition(response.data.current);

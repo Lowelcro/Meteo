@@ -2,7 +2,7 @@ import './AppFooter.scss';
 
 const AppFooter = () => {
   return (
-    <footer>
+    <footer className="app__footer">
       <p>
         Powered by{' '}
         <a href="https://www.weatherapi.com/" title="Weather API">

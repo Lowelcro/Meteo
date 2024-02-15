@@ -27,7 +27,7 @@
       background: none;
       border: none;
       font-size: 1rem;
-      color: blue;
+      color: white;
     }
   }
 }
@@ -45,5 +45,9 @@
 @media screen and (max-width: 496px) {
   .Results {
     width: 90%;
+
+    &__footer {
+      font-size: .7rem;
+    }
   }
 }
